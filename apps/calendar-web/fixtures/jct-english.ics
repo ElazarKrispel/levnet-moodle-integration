@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:english-1@moodle.jct.ac.il
+SUMMARY:Submit 'Database project'
+CATEGORIES:Databases
+DTSTART:20260815T210000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:english-2@moodle.jct.ac.il
+SUMMARY:Algorithms worksheet is due
+CATEGORIES:Algorithms
+DTSTART:20260820T090000Z
+END:VEVENT
+END:VCALENDAR

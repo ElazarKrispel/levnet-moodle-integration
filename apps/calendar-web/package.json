@@ -1,0 +1,10 @@
+{
+  "name": "levnet-moodle-calendar-web",
+  "version": "2.0.0",
+  "private": true,
+  "description": "User-owned Apps Script Web App sync from JCT Moodle iCalendar to Google Calendar.",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/Core.js && node --check src/Code.js"
+  }
+}

@@ -1,0 +1,1 @@
+# .clasp.json already sets rootDir to src, so every supported file here is deployable.

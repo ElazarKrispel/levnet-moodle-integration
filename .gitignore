@@ -1,0 +1,13 @@
+node_modules/
+artifacts/
+*.log
+.DS_Store
+__pycache__/
+*.pyc
+apps/calendar-web/.clasp.json
+installer/windows/bin/
+installer/windows/obj/
+installer/windows/payload/
+installer/windows/payload.zip
+packages/levnet-moodle-source/.sea-build/
+plugins/levnet-moodle-integration/bin/*.exe

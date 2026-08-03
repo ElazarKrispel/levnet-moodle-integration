@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Moodle Pty Ltd//NONSGML Moodle Version 4.5//EN
+BEGIN:VEVENT
+UID:98231@moodle.jct.ac.il
+SUMMARY:יש להגיש את 'Word Processing Task 6'
+CATEGORIES:יישומי מחשב
+DTSTART:20260810T180000Z
+DTEND:20260810T180000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:98232@moodle.jct.ac.il
+SUMMARY:יש להגיש את 'מטלה ארוכה עם שורה מקו
+ פלת'
+CATEGORIES:מבוא\, מתקדם
+DTSTART;TZID=Asia/Jerusalem:20261201T120000
+END:VEVENT
+BEGIN:VEVENT
+UID:98233@moodle.jct.ac.il
+SUMMARY:מפגש חזרה למבחן
+CATEGORIES:יישומי מחשב
+DTSTART:20260811T090000Z
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+{
+  "name": "levnet-moodle",
+  "interface": {
+    "displayName": "Levnet & Moodle"
+  },
+  "plugins": [
+    {
+      "name": "levnet-moodle-integration",
+      "source": {
+        "source": "local",
+        "path": "../../plugins/levnet-moodle-integration"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

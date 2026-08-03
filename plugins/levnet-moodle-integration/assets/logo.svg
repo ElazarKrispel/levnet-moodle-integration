@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Levnet &amp; Moodle Integration</title>
+  <desc id="desc">Two interlocking rounded shapes representing connected student services.</desc>
+  <defs>
+    <linearGradient id="bg" x1="36" y1="28" x2="220" y2="228" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#0f766e"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <path d="M66 76a18 18 0 0 1 18-18h52a18 18 0 0 1 18 18v58a18 18 0 0 1-18 18H84a18 18 0 0 1-18-18V76Z" fill="none" stroke="#fff" stroke-width="16"/>
+  <path d="M102 122a18 18 0 0 1 18-18h52a18 18 0 0 1 18 18v58a18 18 0 0 1-18 18h-52a18 18 0 0 1-18-18v-58Z" fill="none" stroke="#bbf7d0" stroke-width="16"/>
+  <circle cx="128" cy="128" r="11" fill="#fff"/>
+</svg>

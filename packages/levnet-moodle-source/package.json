@@ -1,0 +1,26 @@
+{
+  "name": "levnet-moodle-integration-source",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Independent Moodle and Levnet connector with secure downloads and confirmed action workflows.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:windows": "node scripts/build-windows.mjs",
+    "test": "node --test",
+    "start": "node scripts/server.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "setup": "node scripts/setup-credentials.mjs",
+    "smoke:levnet": "node scripts/smoke-levnet.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "postject": "^1.0.0-alpha.6"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "ws": "^8.20.0",
+    "zod": "^4.3.6"
+  }
+}

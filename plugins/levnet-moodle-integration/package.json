@@ -1,0 +1,10 @@
+{
+  "name": "levnet-moodle-integration-plugin",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Installable Levnet & Moodle Integration plugin artifact.",
+  "engines": {
+    "node": ">=20"
+  }
+}

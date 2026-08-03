@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: packages/levnet-moodle-source/package-lock.json
+      - name: Test plugin source
+        working-directory: packages/levnet-moodle-source
+        run: npm ci && npm test && npm run build
+      - name: Test calendar web app
+        working-directory: apps/calendar-web
+        run: npm test && npm run check
+      - name: Validate public release surface
+        run: node scripts/validate-public-release.mjs
+
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

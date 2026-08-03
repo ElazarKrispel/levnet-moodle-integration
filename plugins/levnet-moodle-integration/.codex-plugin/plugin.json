@@ -1,0 +1,36 @@
+{
+  "name": "levnet-moodle-integration",
+  "version": "2.0.0",
+  "description": "Independent access to Moodle and Levnet with secure calendar synchronization, downloads, and confirmed actions.",
+  "author": {
+    "name": "Elazar Krispel",
+    "email": "noreply@localhost",
+    "url": "https://github.com/ElazarKrispel"
+  },
+  "homepage": "https://elazarkrispel.github.io/levnet-moodle-integration/",
+  "repository": "https://github.com/ElazarKrispel/levnet-moodle-integration",
+  "license": "MIT",
+  "keywords": ["moodle", "levnet", "courses", "assignments", "student-productivity", "mcp", "codex"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Levnet & Moodle Integration",
+    "shortDescription": "Independent Moodle and Levnet student tools",
+    "longDescription": "An independent, unofficial student integration for JCT Moodle and Levnet. It connects a private Moodle calendar feed to Google Calendar, downloads reviewed files, and performs allowlisted actions through account-bound confirmations. Secrets stay in native dialogs and operating-system protected storage.",
+    "developerName": "Elazar Krispel",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "websiteURL": "https://elazarkrispel.github.io/levnet-moodle-integration/",
+    "privacyPolicyURL": "https://elazarkrispel.github.io/levnet-moodle-integration/privacy/",
+    "termsOfServiceURL": "https://elazarkrispel.github.io/levnet-moodle-integration/terms/",
+    "defaultPrompt": [
+      "Set up Moodle, Levnet, and my Google Calendar.",
+      "Show my Moodle deadlines for the next two weeks.",
+      "Check whether Moodle and Levnet are connected."
+    ],
+    "brandColor": "#1D4ED8",
+    "composerIcon": "./assets/logo.svg",
+    "logo": "./assets/logo.svg",
+    "screenshots": []
+  }
+}

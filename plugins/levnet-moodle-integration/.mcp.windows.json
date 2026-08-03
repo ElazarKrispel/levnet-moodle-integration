@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "levnet_moodle": {
+      "cwd": ".",
+      "command": "./bin/levnet-moodle-integration-win-x64.exe",
+      "args": [],
+      "env": {
+        "LMI_CALENDAR_WEB_APP_URL": "https://script.google.com/macros/s/AKfycbyMoKS0sxz9CKlzF8rBXtwjRVMelD7YCOOpdHKK5vVFLSqQ1QUJuM7KNYFdcNvkqJen8Q/exec"
+      }
+    }
+  }
+}
