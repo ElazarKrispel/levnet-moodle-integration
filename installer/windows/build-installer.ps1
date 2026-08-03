@@ -27,7 +27,10 @@ Copy-Item -LiteralPath (Join-Path $pluginRoot ".mcp.windows.json") -Destination 
 Compress-Archive -Path (Join-Path $payloadRoot "*") -DestinationPath $payloadZip -CompressionLevel Optimal
 New-Item -ItemType Directory -Path $artifactRoot -Force | Out-Null
 dotnet publish (Join-Path $installerRoot "LevnetMoodleInstaller.csproj") -c $Configuration -r win-x64 --self-contained true -o $artifactRoot
+$installerExe = Join-Path $artifactRoot "Levnet-Moodle-Setup.exe"
+$selfTest = Start-Process -FilePath $installerExe -ArgumentList "--self-test" -WindowStyle Hidden -Wait -PassThru
+if ($selfTest.ExitCode -ne 0) { throw "The built installer failed its extraction self-test." }
 
 Remove-Item -LiteralPath $payloadRoot -Recurse -Force
 Remove-Item -LiteralPath $payloadZip -Force
-Write-Output (Join-Path $artifactRoot "Levnet-Moodle-Setup.exe")
+Write-Output $installerExe

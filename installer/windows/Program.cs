@@ -7,10 +7,28 @@ namespace LevnetMoodleInstaller;
 internal static class Program
 {
     [STAThread]
-    private static void Main()
+    private static int Main(string[] args)
     {
+        if (args.Contains("--self-test", StringComparer.OrdinalIgnoreCase))
+        {
+            var testRoot = Path.Combine(Path.GetTempPath(), "LevnetMoodleInstallerTest-" + Guid.NewGuid().ToString("N"));
+            try
+            {
+                var marketplace = InstallerForm.InstallPayload(testRoot);
+                return File.Exists(marketplace) ? 0 : 1;
+            }
+            catch
+            {
+                return 1;
+            }
+            finally
+            {
+                if (Directory.Exists(testRoot)) Directory.Delete(testRoot, true);
+            }
+        }
         ApplicationConfiguration.Initialize();
         Application.Run(new InstallerForm());
+        return 0;
     }
 }
 
@@ -127,7 +145,7 @@ internal sealed class InstallerForm : Form
         statusLabel.Text = "מתקין את הרכיבים האישיים…";
         try
         {
-            marketplacePath = await Task.Run(InstallPayload);
+            marketplacePath = await Task.Run(() => InstallPayload());
             progress.Visible = false;
             statusLabel.Text = "ההתקנה המקומית הושלמה. כעת מאשרים את הפלאגין בתוך Codex.";
             statusLabel.ForeColor = Color.FromArgb(8, 127, 91);
@@ -145,10 +163,10 @@ internal sealed class InstallerForm : Form
         }
     }
 
-    private static string InstallPayload()
+    internal static string InstallPayload(string? productRootOverride = null)
     {
         var localData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-        var productRoot = Path.GetFullPath(Path.Combine(localData, "LevnetMoodleIntegration"));
+        var productRoot = Path.GetFullPath(productRootOverride ?? Path.Combine(localData, "LevnetMoodleIntegration"));
         var destination = Path.GetFullPath(Path.Combine(productRoot, Version));
         var staging = Path.GetFullPath(Path.Combine(productRoot, Version + ".installing"));
         Directory.CreateDirectory(productRoot);
