@@ -17,10 +17,9 @@ if (-not (Test-Path -LiteralPath $serverExe)) {
 
 if (Test-Path -LiteralPath $payloadRoot) { Remove-Item -LiteralPath $payloadRoot -Recurse -Force }
 if (Test-Path -LiteralPath $payloadZip) { Remove-Item -LiteralPath $payloadZip -Force }
-New-Item -ItemType Directory -Path (Join-Path $payloadRoot ".agents\plugins") -Force | Out-Null
 New-Item -ItemType Directory -Path (Join-Path $payloadRoot "plugins") -Force | Out-Null
 
-Copy-Item -LiteralPath (Join-Path $installerRoot "marketplace.json") -Destination (Join-Path $payloadRoot ".agents\plugins\marketplace.json")
+Copy-Item -LiteralPath (Join-Path $installerRoot "marketplace.json") -Destination (Join-Path $payloadRoot "marketplace.json")
 Copy-Item -LiteralPath $pluginRoot -Destination (Join-Path $payloadRoot "plugins\levnet-moodle-integration") -Recurse
 Copy-Item -LiteralPath (Join-Path $pluginRoot ".mcp.windows.json") -Destination (Join-Path $payloadRoot "plugins\levnet-moodle-integration\.mcp.json") -Force
 

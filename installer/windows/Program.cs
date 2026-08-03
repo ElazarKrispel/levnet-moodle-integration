@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.IO.Compression;
 using System.Reflection;
+using System.Text.Json;
 
 namespace LevnetMoodleInstaller;
 
@@ -34,7 +35,7 @@ internal static class Program
 
 internal sealed class InstallerForm : Form
 {
-    private const string Version = "2.0.0";
+    private const string Version = "2.0.1";
     private readonly Button installButton = new();
     private readonly Label statusLabel = new();
     private readonly ProgressBar progress = new();
@@ -190,14 +191,25 @@ internal sealed class InstallerForm : Form
             entry.ExtractToFile(target, true);
         }
 
-        var marketplace = Path.Combine(staging, ".agents", "plugins", "marketplace.json");
+        var marketplace = Path.Combine(staging, "marketplace.json");
         var server = Path.Combine(staging, "plugins", "levnet-moodle-integration", "bin", "levnet-moodle-integration-win-x64.exe");
         if (!File.Exists(marketplace) || !File.Exists(server))
             throw new InvalidOperationException("חבילת ההתקנה אינה שלמה.");
 
+        using (var document = JsonDocument.Parse(File.ReadAllText(marketplace)))
+        {
+            var entry = document.RootElement.GetProperty("plugins")[0];
+            var sourcePath = entry.GetProperty("source").GetProperty("path").GetString()
+                ?? throw new InvalidOperationException("Marketplace source path is missing.");
+            var resolvedPlugin = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(marketplace)!, sourcePath));
+            var expectedPlugin = Path.GetFullPath(Path.Combine(staging, "plugins", "levnet-moodle-integration"));
+            if (!string.Equals(resolvedPlugin, expectedPlugin, StringComparison.OrdinalIgnoreCase) || !Directory.Exists(resolvedPlugin))
+                throw new InvalidOperationException("Marketplace plugin path is invalid.");
+        }
+
         if (Directory.Exists(destination)) Directory.Delete(destination, true);
         Directory.Move(staging, destination);
-        return Path.Combine(destination, ".agents", "plugins", "marketplace.json");
+        return Path.Combine(destination, "marketplace.json");
     }
 
     private static void OpenCodex(string path)

@@ -1,5 +1,5 @@
 {
-  "name": "levnet-moodle",
+  "name": "levnet-moodle-pilot-3",
   "interface": {
     "displayName": "Levnet & Moodle"
   },
@@ -8,7 +8,7 @@
       "name": "levnet-moodle-integration",
       "source": {
         "source": "local",
-        "path": "../../plugins/levnet-moodle-integration"
+        "path": "./plugins/levnet-moodle-integration"
       },
       "policy": {
         "installation": "AVAILABLE",
