@@ -15,7 +15,7 @@
     "smoke:levnet": "node scripts/smoke-levnet.mjs"
   },
   "devDependencies": {
-    "esbuild": "^0.25.0",
+    "esbuild": "^0.28.1",
     "postject": "^1.0.0-alpha.6"
   },
   "dependencies": {
