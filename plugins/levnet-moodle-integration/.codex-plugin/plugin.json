@@ -1,6 +1,6 @@
 {
   "name": "levnet-moodle-integration",
-  "version": "2.0.0",
+  "version": "2.0.0+codex.pilot-4",
   "description": "Independent access to Moodle and Levnet with secure calendar synchronization, downloads, and confirmed actions.",
   "author": {
     "name": "Elazar Krispel",
@@ -10,7 +10,15 @@
   "homepage": "https://elazarkrispel.github.io/levnet-moodle-integration/",
   "repository": "https://github.com/ElazarKrispel/levnet-moodle-integration",
   "license": "MIT",
-  "keywords": ["moodle", "levnet", "courses", "assignments", "student-productivity", "mcp", "codex"],
+  "keywords": [
+    "moodle",
+    "levnet",
+    "courses",
+    "assignments",
+    "student-productivity",
+    "mcp",
+    "codex"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
@@ -19,7 +27,11 @@
     "longDescription": "An independent, unofficial student integration for JCT Moodle and Levnet. It connects a private Moodle calendar feed to Google Calendar, downloads reviewed files, and performs allowlisted actions through account-bound confirmations. Secrets stay in native dialogs and operating-system protected storage.",
     "developerName": "Elazar Krispel",
     "category": "Productivity",
-    "capabilities": ["Interactive", "Read", "Write"],
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
     "websiteURL": "https://elazarkrispel.github.io/levnet-moodle-integration/",
     "privacyPolicyURL": "https://elazarkrispel.github.io/levnet-moodle-integration/privacy/",
     "termsOfServiceURL": "https://elazarkrispel.github.io/levnet-moodle-integration/terms/",
